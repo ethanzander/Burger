@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="jumbotron">
+            <h1>MAKE A BURGER AND EAT IT!</h1>
+            <p></p>
+        </div>
+    </div>
+    <div class="row">
+        <h1>Create A Burger!</h1>
+        <form class="create-burger-form" action="/" method="POST">
+            <div class="form-group">
+                <label for="burger">Burger Name:</label>
+                <input type="text" id="burger" name="name">
+            </div>
+
+            <button type="submit">Add Burger</button>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <h1>Available Burgers</h1>
+            <ul>
+                {{#each burgers}} {{#unless this.devoured}}
+                <li>
+                    <h1>{{this.burger_name}}</h1>
+                    <form action="/{{this.id}}?_method=PUT" method="POST">
+                        <button type="submit">DEVOUR!</button>
+                    </form>
+                </li>
+                {{/unless}} {{/each}}
+            </ul>
+        </div>
+        <div class="col-lg-6">
+            <h1>Devoured Burgers</h1>
+            <ul>
+                {{#each burgers}} {{#if this.devoured}}
+                <li>
+                    <h1>{{this.burger_name}}</h1>
+                </li>
+                {{/if}} {{/each}}
+            </ul>
+        </div>
+    </div>
+
+</div>
+</div>
