@@ -17,30 +17,36 @@
         </form>
     </div>
     <div class="row">
-        <div class="col-lg-6">
-            <h1>Available Burgers</h1>
-            <ul>
-                {{#each burgers}} {{#unless this.devoured}}
-                <li>
-                    <h1>{{this.burger_name}}</h1>
-                    <form action="/{{this.id}}?_method=PUT" method="POST">
-                        <button type="submit">DEVOUR!</button>
-                    </form>
-                </li>
-                {{/unless}} {{/each}}
-            </ul>
+        <div class="panel panel-default col-lg-5">
+            <div class="panel-heading">
+                <h1>Available Burgers</h1>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    {{#each burgers}} {{#unless this.devoured}}
+                    <li>
+                        <h1>{{this.burger_name}}</h1>
+                        <form action="/{{this.id}}?_method=PUT" method="POST">
+                            <button type="submit">Eat it!</button>
+                        </form>
+                    </li>
+                    {{/unless}} {{/each}}
+                </ul>
+            </div>
         </div>
-        <div class="col-lg-6">
-            <h1>Devoured Burgers</h1>
-            <ul>
-                {{#each burgers}} {{#if this.devoured}}
-                <li>
-                    <h1>{{this.burger_name}}</h1>
-                </li>
-                {{/if}} {{/each}}
-            </ul>
+        <div class="panel panel-default col-lg-5">
+            <div class="panel-heading">
+                <h1>Devoured Burgers</h1>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    {{#each burgers}} {{#if this.devoured}}
+                    <li>
+                        <h1>{{this.burger_name}}</h1>
+                    </li>
+                    {{/if}} {{/each}}
+                </ul>
+            </div>
         </div>
     </div>
-
-</div>
 </div>

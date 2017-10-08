@@ -18,11 +18,31 @@ router.post("/", function(req, res){
     });
 });
 
-router.put("/:id", function(req, res){
+router.post("/:id", function(req, res){
     var selected = req.params.id;
     burger.update(selected, function() {
         res.redirect("/");
     });
 });
+
+// router.put("/:id", function(req, res) {
+//     var condition = "id = " + req.params.id;
+  
+//     console.log("condition", condition);
+  
+//     burger.update({
+//       devoured: req.body.devoured
+//     }, condition, function() {
+//       res.redirect("/");
+//     });
+//   });
+  
+//   router.delete("/:id", function(req, res) {
+//     var condition = "id = " + req.params.id;
+  
+//     burger.delete(condition, function() {
+//       res.redirect("/");
+//     });
+//   });
 
 module.exports = router;
